@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import type { action, trigger } from '../state/types';
+import type { action, trigger } from '../types/types';
 
 export default function useTimer(dispatch: (e: action) => void, trigger: trigger) {
   const timerIntervalRef = useRef<number | null>(null);

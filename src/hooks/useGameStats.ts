@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { produce } from "immer";
-import {type gameState, type gameStats} from "../state/types";
+import {type gameState, type gameStats} from "../types/types";
 
 export default function useGameStats(game: gameState) {
     const [gameStats, setGameStats] = useState<gameStats>({});

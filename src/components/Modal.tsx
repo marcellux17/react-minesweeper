@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { boardSettings, difficulty, gameStats } from '../state/types';
+import type { boardSettings, difficulty, gameStats } from '../types/types';
 
 type modalProps = {
     settings: boardSettings;

@@ -1,4 +1,4 @@
-import type { action, gameState } from '../state/types';
+import type { action, gameState } from '../types/types';
 import React from "react";
 
 type toolBarProps = {

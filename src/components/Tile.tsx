@@ -1,4 +1,4 @@
-import type { action, gameStatus, tile } from '../state/types';
+import type { action, gameStatus, tile } from '../types/types';
 
 type tileProps = {
   tile: tile;

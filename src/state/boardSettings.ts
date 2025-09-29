@@ -1,4 +1,4 @@
-import type { boardSettings } from "./types";
+import type { boardSettings } from "../types/types";
 const settings: boardSettings = {
     "Beginner": {
         rows: 9,

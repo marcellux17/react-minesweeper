@@ -1,5 +1,5 @@
 import settings from "./boardSettings";
-import type { gameState, action } from './types';
+import type { gameState, action } from '../types/types';
 import { generateTiles, revealArea, revealMines, revealTile, toggleFlag } from "../utils/gameHelpers";
 
 export default function reducer(state: gameState, action: action): gameState{

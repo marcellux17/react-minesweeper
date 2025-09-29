@@ -3,7 +3,7 @@ import Board from './Board';
 import Modal from './Modal';
 import ToolBar from './ToolBar';
 import settings from '../state/boardSettings';
-import type { difficulty } from '../state/types';
+import type { difficulty } from '../types/types';
 import { generateTiles } from '../utils/gameHelpers';
 import reducer from '../state/gameReducer';
 import useTimer from '../hooks/useTimer';

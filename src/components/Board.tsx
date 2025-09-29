@@ -1,5 +1,5 @@
-import type { gameState } from '../state/types';
-import type { action } from '../state/types';
+import type { gameState } from '../types/types';
+import type { action } from '../types/types';
 import Tile from './Tile'
 
 type boardProps = {
