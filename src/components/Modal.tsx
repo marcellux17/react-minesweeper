@@ -19,6 +19,7 @@ export default function Modal({settings, dispatch, setModalShown, difficulty, ga
     return (
         <div className='modal'>
             <h2>Settings</h2>
+            {Object.keys(gameStats).length !== 0 && 
             <div className='game-stats'>
                 <div className='game-stats-header'>
                     <div>Difficulty</div>
@@ -45,6 +46,7 @@ export default function Modal({settings, dispatch, setModalShown, difficulty, ga
                     })
                 }
             </div>
+            }
             <div className='explainer'>
                 <h3>What do these emojis mean?</h3>
                 <div>
