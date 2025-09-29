@@ -3,8 +3,8 @@ import React from "react";
 
 type toolBarProps = {
     game: gameState;
-    setModalShown: (value: React.SetStateAction<boolean>) => void;
-    dispatch: (a: action) => void;
+    setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
+    dispatch: React.Dispatch<action>;
     time: number;
 }
 export default function ToolBar({game, setModalShown, dispatch, time}:toolBarProps) {

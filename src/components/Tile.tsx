@@ -2,7 +2,7 @@ import type { action, gameStatus, tile } from '../types/types';
 
 type tileProps = {
   tile: tile;
-  dispatch: (a: action) => void;
+  dispatch: React.Dispatch<action>;
   gameStatus: gameStatus
 }
 export default function Tile({tile, dispatch, gameStatus}:tileProps) {

@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
-import type { boardSettings, difficulty, gameStats } from '../types/types';
+import type { action, boardSettings, difficulty, gameStats } from '../types/types';
 
 type modalProps = {
     settings: boardSettings;
-    handleClose: (selectedDiffifulty: difficulty) => void;
+    setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
+    dispatch: React.Dispatch<action>;
     difficulty: difficulty;
     gameStats: gameStats;
 }
-export default function Modal({settings, handleClose, difficulty, gameStats}: modalProps) {
+export default function Modal({settings, dispatch, setModalShown, difficulty, gameStats}: modalProps) {
     const [selectedDifficulty, setSelectedDifficulty] = useState<difficulty>(difficulty);
+    function handleClose(){
+        setModalShown(false);
+        if(difficulty !== selectedDifficulty){
+            dispatch({type: "CHANGE_BOARDCONFIG", difficulty: selectedDifficulty})
+        }
+    }
     return (
         <div className='modal'>
             <h2>Settings</h2>
@@ -72,7 +79,7 @@ export default function Modal({settings, handleClose, difficulty, gameStats}: mo
                     )
                 })}
             </div>
-            <button className='close-modal' onClick={() => handleClose(selectedDifficulty)}><img src='./close.svg'></img></button>
+            <button className='close-modal' onClick={handleClose}><img src='./close.svg'></img></button>
         </div>
     )
 }

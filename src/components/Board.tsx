@@ -4,7 +4,7 @@ import Tile from './Tile'
 
 type boardProps = {
     game: gameState;
-    dispatch: (a: action) => void
+    dispatch: React.Dispatch<action>;
 }
 export default function Board({game, dispatch}: boardProps) {
     const boardCells = game.tiles.map(row => {

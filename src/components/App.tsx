@@ -26,15 +26,9 @@ export default function App() {
     useTimer(dispatch, game.timerTrigger);
     const gameStats = useGameStats(game);
 
-    function handleModalClose(selectedDifficulty: difficulty):void{
-        setModalShown(false);
-        if(game.difficulty !== selectedDifficulty){
-            dispatch({type: "CHANGE_BOARDCONFIG", difficulty: selectedDifficulty});
-        }
-    }
     return (
         <>
-            {modalShown && <Modal settings={settings} handleClose={handleModalClose} difficulty={game.difficulty} gameStats={gameStats}></Modal>}
+            {modalShown && <Modal settings={settings} dispatch={dispatch} setModalShown={setModalShown} difficulty={game.difficulty} gameStats={gameStats}></Modal>}
             <main>
                     <ToolBar setModalShown={setModalShown} dispatch={dispatch} game={game} time={game.time}></ToolBar>
                     <Board game={game} dispatch={dispatch}></Board>
