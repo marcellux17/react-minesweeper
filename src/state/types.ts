@@ -40,3 +40,11 @@ export type action = { type: "CHANGE_BOARDCONFIG"; difficulty: difficulty; } |
 { type: "RIGHT_CLICK_TILE"; coordinate: coordinate; } |
 { type: "NEW_GAME" }|
 { type: "INCREMENT_TIME"}
+export type gameStat = {
+    bestTime: number;
+    losses: number;
+    wins: number;
+}
+export type gameStats = {
+    [D in difficulty]?: gameStat
+}

@@ -1,16 +1,43 @@
 import React, { useState } from 'react'
-import type { boardSettings, difficulty } from '../state/types';
+import type { boardSettings, difficulty, gameStats } from '../state/types';
 
 type modalProps = {
     settings: boardSettings;
     handleClose: (selectedDiffifulty: difficulty) => void;
     difficulty: difficulty;
+    gameStats: gameStats;
 }
-export default function Modal({settings, handleClose, difficulty}: modalProps) {
+export default function Modal({settings, handleClose, difficulty, gameStats}: modalProps) {
     const [selectedDifficulty, setSelectedDifficulty] = useState<difficulty>(difficulty);
     return (
         <div className='modal'>
             <h2>Settings</h2>
+            <div className='game-stats'>
+                <div className='game-stats-header'>
+                    <div>Difficulty</div>
+                    <div>Wins</div>
+                    <div>Losses</div>
+                    <div>Win %</div>
+                    <div>Best time</div>
+                </div>
+
+                {
+                    Object.keys(gameStats).map(difficulty => {
+                        const wins = gameStats[difficulty as difficulty]!.wins;
+                        const losses = gameStats[difficulty as difficulty]!.losses;
+                        const bestTime = gameStats[difficulty as difficulty]!.bestTime;
+                        return (
+                            <React.Fragment key={difficulty}>
+                                <div>{difficulty}</div>
+                                <div>{wins}</div>
+                                <div>{losses}</div>
+                                <div>{Math.floor(wins*100 / (wins+losses))}%</div>
+                                <div>{bestTime === -1 ? "" : bestTime}</div>
+                            </React.Fragment>
+                        )
+                    })
+                }
+            </div>
             <div className='explainer'>
                 <h3>What do these emojis mean?</h3>
                 <div>
@@ -45,7 +72,6 @@ export default function Modal({settings, handleClose, difficulty}: modalProps) {
                     )
                 })}
             </div>
-            <div className='game-stats'>game stats will appear here</div>
             <button className='close-modal' onClick={() => handleClose(selectedDifficulty)}><img src='./close.svg'></img></button>
         </div>
     )

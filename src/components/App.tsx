@@ -7,6 +7,7 @@ import type { difficulty } from '../state/types';
 import { generateTiles } from '../utils/gameHelpers';
 import reducer from '../state/gameReducer';
 import useTimer from '../hooks/useTimer';
+import useGameStats from '../hooks/useGameStats';
 
 export default function App() {
     const initialDifficulty:difficulty = "Intermediate";
@@ -23,6 +24,7 @@ export default function App() {
     });
     const [modalShown, setModalShown] = useState<boolean>(false);
     useTimer(dispatch, game.timerTrigger);
+    const gameStats = useGameStats(game);
 
     function handleModalClose(selectedDifficulty: difficulty):void{
         setModalShown(false);
@@ -32,7 +34,7 @@ export default function App() {
     }
     return (
         <>
-            {modalShown && <Modal settings={settings} handleClose={handleModalClose} difficulty={game.difficulty}></Modal>}
+            {modalShown && <Modal settings={settings} handleClose={handleModalClose} difficulty={game.difficulty} gameStats={gameStats}></Modal>}
             <main>
                     <ToolBar setModalShown={setModalShown} dispatch={dispatch} game={game} time={game.time}></ToolBar>
                     <Board game={game} dispatch={dispatch}></Board>
