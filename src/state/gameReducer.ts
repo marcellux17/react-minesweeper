@@ -1,6 +1,6 @@
 import settings from "./boardSettings";
 import type { gameState, action } from './types';
-import { generateTiles, revealArea, revealMines, revealTile, toggleFlag } from "./gameHelpers";
+import { generateTiles, revealArea, revealMines, revealTile, toggleFlag } from "../utils/gameHelpers";
 
 export default function reducer(state: gameState, action: action): gameState{
     if(action.type === "CHANGE_BOARDCONFIG"){
