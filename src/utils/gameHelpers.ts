@@ -1,4 +1,4 @@
-import type { coordinate, tile, boardConfig, gameState } from "./types";
+import type { coordinate, tile, boardConfig, gameState } from "../types/types";
 import { produce } from "immer";
 
 export function generateMineCoordinates(boardConfig:boardConfig):coordinate[]{
