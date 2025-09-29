@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from 'react'
+import { useReducer, useState } from 'react'
 import Board from './Board';
 import Modal from './Modal';
 import ToolBar from './ToolBar';
@@ -6,6 +6,7 @@ import settings from '../state/boardSettings';
 import type { difficulty } from '../state/types';
 import { generateTiles } from '../state/gameHelpers';
 import reducer from '../state/gameReducer';
+import useTimer from '../hooks/useTimer';
 
 export default function App() {
     const initialDifficulty:difficulty = "Intermediate";
@@ -21,24 +22,7 @@ export default function App() {
         time: 0,
     });
     const [modalShown, setModalShown] = useState<boolean>(false);
-    const timerIntervalRef = useRef<number | null>(null);
-
-    useEffect(() => {
-        if(game.timerTrigger === "on"){
-            timerIntervalRef.current = setInterval(() => {
-                dispatch({type: "INCREMENT_TIME"});
-            }, 1000)
-        }else{
-            if(timerIntervalRef.current !== 0 && timerIntervalRef.current !== null){
-                clearInterval(timerIntervalRef.current!);
-            }
-        }
-        return () => {
-            if(timerIntervalRef.current !== 0 && timerIntervalRef.current !== null){
-                clearInterval(timerIntervalRef.current!);
-            }
-        };
-    }, [game.timerTrigger])
+    useTimer(dispatch, game.timerTrigger);
 
     function handleModalClose(selectedDifficulty: difficulty):void{
         setModalShown(false);

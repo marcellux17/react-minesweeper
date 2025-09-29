@@ -7,7 +7,7 @@ type modalProps = {
     difficulty: difficulty;
 }
 export default function Modal({settings, handleClose, difficulty}: modalProps) {
-    const [selectedDifficulty, setSelectedDifficulty] = useState<difficulty>(difficulty)
+    const [selectedDifficulty, setSelectedDifficulty] = useState<difficulty>(difficulty);
     return (
         <div className='modal'>
             <h2>Settings</h2>

@@ -1,0 +1,23 @@
+import { useEffect, useRef } from 'react'
+import type { action, trigger } from '../state/types';
+
+export default function useTimer(dispatch: (e: action) => void, trigger: trigger) {
+  const timerIntervalRef = useRef<number | null>(null);
+
+    useEffect(() => {
+        if(trigger === "on"){
+            timerIntervalRef.current = setInterval(() => {
+                dispatch({type: "INCREMENT_TIME"});
+            }, 1000)
+        }else{
+            if(timerIntervalRef.current !== 0 && timerIntervalRef.current !== null){
+                clearInterval(timerIntervalRef.current!);
+            }
+        }
+        return () => {
+            if(timerIntervalRef.current !== 0 && timerIntervalRef.current !== null){
+                clearInterval(timerIntervalRef.current!);
+            }
+        };
+    }, [trigger]);
+}

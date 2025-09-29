@@ -17,6 +17,7 @@ export type coordinate = {
     column: number;
 };
 export type gameStatus = "over" | "going" | "won";
+export type trigger = "on" | "off";
 export type gameState = {
     difficulty: difficulty;
     status: gameStatus;
@@ -25,7 +26,7 @@ export type gameState = {
     tool: tool;
     flagsPlaced: number;
     revealedTiles: number;
-    timerTrigger: "on" | "off";
+    timerTrigger: trigger;
     time: number;
 };
 export type difficulty = "Beginner" | "Intermediate" | "Expert";
