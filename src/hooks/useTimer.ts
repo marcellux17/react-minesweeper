@@ -10,12 +10,12 @@ export default function useTimer(dispatch: (e: action) => void, trigger: trigger
                 dispatch({type: "INCREMENT_TIME"});
             }, 1000)
         }else{
-            if(timerIntervalRef.current !== 0 && timerIntervalRef.current !== null){
+            if(timerIntervalRef.current !== null){
                 clearInterval(timerIntervalRef.current!);
             }
         }
         return () => {
-            if(timerIntervalRef.current !== 0 && timerIntervalRef.current !== null){
+            if(timerIntervalRef.current !== null){
                 clearInterval(timerIntervalRef.current!);
             }
         };
