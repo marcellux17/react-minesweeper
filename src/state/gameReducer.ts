@@ -36,8 +36,8 @@ export default function reducer(state: gameState, action: action): gameState{
     if(action.type === "CLICK_TILE"){
         const tile = state.tiles[action.coordinate.row][action.coordinate.column];
         if(state.tool === "reveal"){
-            if(tile.holds === "mine")return revealMines(state);
             if(tile.flagOver) return state;
+            if(tile.holds === "mine")return revealMines(state);
 
             if(tile.holds === "number" && tile.state !== "revealed")return revealTile(state, tile);
 
