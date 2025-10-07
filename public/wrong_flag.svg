@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="emoji"
+   viewBox="0 0 72 72"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="color">
+    <polygon
+       fill="#d22f27"
+       points="67 24 36 33.5 5 43 5 24 5 5 36 14.5 67 24"
+       id="polygon1" />
+  </g>
+  <g
+     id="line">
+    <g
+       id="g2">
+      <path
+         d="M 5,5 V 24 43 L 36,33.5 67,24 36,14.5 Z"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+         id="path3" />
+      <line
+         x1="5"
+         x2="5"
+         y1="5"
+         y2="67"
+         fill="none"
+         stroke="#000"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-width="2"
+         id="line2" />
+    </g>
+  </g>
+  <rect
+     style="fill:#000000;stroke-width:1.57181"
+     id="rect3-0"
+     width="90.978065"
+     height="2.6981523"
+     x="5.3020635"
+     y="-1.653774"
+     ry="1.3490762"
+     rx="4.9699702"
+     transform="matrix(0.69862837,0.71548474,-0.81472196,0.57985182,0,0)" />
+  <rect
+     style="fill:#000000;stroke-width:1.57564"
+     id="rect3-0-9"
+     width="91.277695"
+     height="2.7023969"
+     x="-52.190899"
+     y="-52.807289"
+     ry="1.3511984"
+     rx="4.9863381"
+     transform="matrix(-0.70273437,0.71145232,-0.60725995,-0.79450321,0,0)" />
+</svg>
