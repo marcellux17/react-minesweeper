@@ -1,5 +1,11 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import React, { useState } from 'react'
 import type { action, boardSettings, difficulty, gameStats } from '../types/types';
+import PartyFace from '../assets/party.svg?react'
+import SadFace from '../assets/sad.svg?react';
+import HappyFace from '../assets/happy.svg?react';
+import CloseIcon from '../assets/close.svg?react';
 
 type modalProps = {
     settings: boardSettings;
@@ -50,15 +56,15 @@ export default function Modal({settings, dispatch, setModalShown, difficulty, ga
             <div className='explainer'>
                 <h3>What do these emojis mean?</h3>
                 <div>
-                    <img src="./happy.svg" width={55} alt="" />
+                    <HappyFace width={55} />
                     <p>Game is on!</p>
                 </div>
                 <div>
-                    <img src="./sad.svg" width={55} alt="" />
+                    <SadFace width={55} />
                     <p>You lost!</p>
                 </div>
                 <div>
-                    <img src="./party.svg" width={55} alt="" />
+                    <PartyFace width={55} />
                     <p>You won!</p>
                 </div>
             </div>
@@ -81,7 +87,7 @@ export default function Modal({settings, dispatch, setModalShown, difficulty, ga
                     )
                 })}
             </div>
-            <button className='close-modal' onClick={handleClose}><img src='./close.svg'></img></button>
+            <button className='close-modal' onClick={handleClose}><CloseIcon /></button>
         </div>
     )
 }
