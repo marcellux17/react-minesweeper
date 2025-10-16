@@ -54,6 +54,7 @@ button{
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1/1;
 }
 .tile.revealed{
   background-color: hsl(var(--primary-color-h), var(--primary-color-s), calc(var(--primary-color-l) - 20%));
